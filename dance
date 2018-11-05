@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+howlong="$1"
+
+printhead() {
+  if [ "$1" == "0" ]; then
+    echo "\o/"
+  elif [ "$1" == "1" ]; then
+    echo "\o|"
+  elif [ "$1" == "2" ]; then
+    echo "|o|"
+  elif [ "$1" == "3" ]; then
+    echo "|o/"
+  else
+    echo "|o|"
+  fi
+}
+
+printbody() {
+  echo " | "
+}
+
+printlegs() {
+  if [ "$1" == "0" ]; then
+    echo "/ \ "
+  elif [ "$1" == "1" ]; then
+    echo "| \ "
+  elif [ "$1" == "2" ]; then
+    echo "| | "
+  elif [ "$1" == "3" ]; then
+    echo "/ | "
+  else
+    echo "| | "
+  fi
+}
+
+printman() {
+  printhead "0"
+  printbody
+  printlegs "0"
+}
+
+danceman() {
+  for iterator in 1 2 3 0
+  do
+    sleep 0.2
+    printf "\033[3A"
+    printf "\033[K"
+    printhead "$iterator"
+    printf "\033[K"
+    printbody
+    printf "\033[K"
+    printlegs "$iterator"
+  done
+}
+
+main() {
+  printman "0"
+  if [ "$1" == "" ]; then
+    danceman
+  elif [ "$1" == "forever" ]; then
+    while true; do
+      danceman
+    done
+  else
+    for (( c=1; c<="$1"; c++ ))
+    do  
+      danceman
+    done
+  fi
+}
+
+main "$howlong"
