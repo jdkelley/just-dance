@@ -21,6 +21,8 @@ $ dance
 / |
 ```
 
+[![asciicast](https://asciinema.org/a/210328.svg)](https://asciinema.org/a/210328)
+
 ## Contributing
 
 If you have a way we can make dancing better, drop an issue or pull request.
