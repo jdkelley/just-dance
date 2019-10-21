@@ -1,6 +1,6 @@
 # docker run --rm \
 #     -it \
-#     jdkelley/dance forever
+#     jdkelley/just-dance forever
 #
 
 FROM jdkelley/bash
